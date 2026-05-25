@@ -4,7 +4,7 @@ chatbot.py
 NLP-based chatbot engine for Galgotias University Inquiry Bot (Dustin).
 Uses NLTK for tokenization, stopword removal, and lemmatization.
 Matches user input to intents defined in intents.json.
-Fixed: Multi-path auto detection for intents.json (Root & Data folder).
+Fixed: Defensively initialized response variable to completely eliminate Streamlit Cloud NameError.
 """
 
 import json
@@ -31,7 +31,6 @@ lemmatizer = WordNetLemmatizer()
 
 try:
     stop_words = set(stopwords.words('english'))
-    # Keep important question words even if they're stopwords
     stop_words -= {'what', 'when', 'where', 'who', 'which', 'how', 'why', 'is', 'are', 'do', 'does', 'can'}
 except:
     stop_words = set()
@@ -40,15 +39,11 @@ except:
 # ─── Load Intents (Smart Multi-Path Check) ───────────────────────────────────
 def load_intents():
     base_dir = os.path.dirname(__file__)
-    
-    # रास्ता 1: सीधे मुख्य (Root) फोल्डर में चेक करें
     filepath = os.path.join(base_dir, 'intents.json')
    
-    # रास्ता 2: अगर बाहर नहीं है, तो 'data' फोल्डर के अंदर चेक करें
     if not os.path.exists(filepath):
         filepath = os.path.join(base_dir, 'data', 'intents.json')
         
-    # अगर दोनों जगह नहीं मिले, तब एरर दें
     if not os.path.exists(filepath):
         raise FileNotFoundError("intents.json not found. Please check if it is in root or data/ folder.")
   
@@ -63,7 +58,6 @@ intents_data = load_intents()
 def preprocess_text(text: str) -> list:
     """Clean and tokenize user input using NLP techniques."""
     text = text.lower().strip()
-
     try:
         tokens = word_tokenize(text)
     except Exception:
@@ -71,31 +65,28 @@ def preprocess_text(text: str) -> list:
 
     filtered = [t for t in tokens if t.isalpha() and t not in stop_words]
     lemmatized = [lemmatizer.lemmatize(t) for t in filtered]
-
     return lemmatized
 
 
 def calculate_match_score(user_tokens: list, pattern: str) -> float:
     """Calculate a similarity score between user input tokens and a pattern string."""
     pattern_tokens = preprocess_text(pattern)
-
     if not pattern_tokens:
         return 0.0
 
     matches = sum(1 for token in pattern_tokens if token in user_tokens)
-    score = matches / len(pattern_tokens)
-    return score
-
-
-def extract_keywords(text: str) -> list:
-    """Extract the most meaningful keywords from user input."""
-    tokens = preprocess_text(text)
-    return tokens
+    return matches / len(pattern_tokens)
 
 
 # ─── Main Chatbot Response Function ──────────────────────────────────────────
 def get_response(user_input: str) -> dict:
     """Main function to determine the best intent match and return a bot response."""
+    
+    # 🔴 DEFENSIVE INITIALIZATION: वेरिएबल को पहले ही डिक्लेयर कर दिया ताकि NameError कभी आ ही न सके
+    response = "I'm sorry, I couldn't process that properly. Please try again or rephrase."
+    intent_tag = "unknown"
+    confidence = 0.0
+
     if not user_input or not user_input.strip():
         return {
             'response': "Please type a message and I'll do my best to help!",
@@ -111,9 +102,8 @@ def get_response(user_input: str) -> dict:
     confidence_threshold = 0.3
 
     # Score each intent
-    for intent in intents_data['intents']:
-        tag = intent['tag']
-
+    for intent in intents_data.get('intents', []):
+        tag = intent.get('tag', 'unknown')
         if tag == 'unknown':
             continue
 
@@ -130,34 +120,22 @@ def get_response(user_input: str) -> dict:
     # Select Response
     if best_intent and best_score >= confidence_threshold:
         response = random.choice(best_intent['responses'])
-        return {
-            'response': response,
-            'intent': best_intent['tag'],
-            'confidence': round(best_score, 2)
-        }
+        intent_tag = best_intent['tag']
+        confidence = round(best_score, 2)
     else:
         unknown_intent = next(
-            (i for i in intents_data['intents'] if i['tag'] == 'unknown'),
+            (i for i in intents_data.get('intents', []) if i.get('tag') == 'unknown'),
             None
         )
-        if unknown_intent:
+        if unknown_intent and unknown_intent.get('responses'):
             response = random.choice(unknown_intent['responses'])
         else:
             response = "I'm not sure how to answer that. Please contact Galgotias University directly at info@galgotiasuniversity.edu.in"
+        intent_tag = 'unknown'
+        confidence = 0.0
 
-        return {
-            'response': response,
-            'intent': 'unknown',
-            'confidence': 0.0
-        }
-
-
-if __name__ == '__main__':
-    print("=" * 60)
-    print("   Galgotias University Chatbot – NLP Engine Test")
-    print("=" * 60)
-    
-    test_queries = ["Hello", "What is the admission process?"]
-    for query in test_queries:
-        result = get_response(query)
-        print(f"\nQ: {query}\nA: {result['response'][:100]}...")
+    return {
+        'response': response,
+        'intent': intent_tag,
+        'confidence': confidence
+    }
