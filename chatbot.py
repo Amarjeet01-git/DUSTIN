@@ -38,22 +38,18 @@ except:
 
 
 # ─── Load Intents ────────────────────────────────────────────────────────────
+import os
+import json
+
 def load_intents():
-    """Load the intents JSON file from the data directory."""
-    # Try multiple paths so it works from different working directories
-    possible_paths = [
-        os.path.join(os.path.dirname(__file__), 'data', 'intents.json'),
-        'data/intents.json',
-        'intents.json',
-    ]
-    for path in possible_paths:
-        if os.path.exists(path):
-            with open(path, 'r', encoding='utf-8') as f:
-                return json.load(f)
-    raise FileNotFoundError("intents.json not found. Please check your file structure.")
-
-intents_data = load_intents()
-
+    base_dir = os.path.dirname(__file__)
+    filepath = os.path.join(base_dir, 'intents.json')
+   
+    if not os.path.exists(filepath):
+        raise FileNotFoundError("intents.json not found. Please check your file structure.")
+  
+    with open(filepath, 'r', encoding='utf-8') as f:
+        return json.load(f)
 
 # ─── NLP Helper Functions ─────────────────────────────────────────────────────
 def preprocess_text(text: str) -> list:
