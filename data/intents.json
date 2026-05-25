@@ -1,0 +1,208 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "howdy", "what's up", "greetings", "hi there", "hello there"],
+      "responses": [
+        "Hello! Welcome to Galgotias University. I'm Dustin, your virtual assistant. How can I help you today?",
+        "Hi there! I'm Dustin, here to answer all your university-related questions. What would you like to know?",
+        "Hey! Welcome! I'm Dustin. Feel free to ask me anything about admissions, courses, fees, or anything else!"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "see you later", "take care", "thanks bye", "exit", "quit", "close"],
+      "responses": [
+        "Goodbye! Best of luck with your journey at Galgotias University. Feel free to come back anytime!",
+        "Take care! If you have more questions, Dustin is always here to help. Goodbye!",
+        "See you later! Wishing you massive success in your academic journey!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "thank you so much", "thanks a lot", "appreciate it", "that helped", "great thanks"],
+      "responses": [
+        "You're welcome! Is there anything else Dustin can help you with?",
+        "Happy to help! Feel free to ask if you have more questions.",
+        "Glad I could assist! Don't hesitate to ask Dustin more questions."
+      ]
+    },
+    {
+      "tag": "admission_process",
+      "patterns": ["admission process", "how to get admission", "how to apply", "apply for admission", "admission procedure", "admission form", "how do i apply", "enrollment process", "join the college"],
+      "responses": [
+        "📋 **Admission Process at Galgotias University:**\n\n1. Visit our official admission portal or campus office.\n2. Fill out the online application form.\n3. Submit required documents (10th & 12th marksheets, migration certificate, ID proof).\n4. Pay the application registration fee.\n5. Appear for counseling or merit/entrance criteria check if applicable.\n6. Receive your formal admission confirmation letter.\n\nAdmission slots fill fast! Would you like to know about specific course timelines?"
+      ]
+    },
+    {
+      "tag": "admission_eligibility",
+      "patterns": ["eligibility", "admission criteria", "who can apply", "minimum marks", "cutoff", "required percentage", "qualifying marks"],
+      "responses": [
+        "📌 **Eligibility Criteria Overview:**\n\n• **UG Courses (BCA, B.Sc, B.Com, BA):** 10+2 with minimum 50% marks from a recognized board.\n• **Engineering (B.Tech):** 10+2 with Physics and Mathematics as compulsory subjects along with minimum 50% marks.\n• **MBA:** Graduation in any stream with standard qualifying marks + entrance clear scores.\n• **MCA:** Graduation with Mathematics at 10+2 level or at Graduation level.\n\nDo you want precise eligibility details for a specific program?"
+      ]
+    },
+    {
+      "tag": "courses_available",
+      "patterns": ["courses", "what courses", "available courses", "programs offered", "what do you offer", "list of courses", "study options", "branches", "departments"],
+      "responses": [
+        "🎓 **Programs Offered at Galgotias University:**\n\n**Undergraduate (UG):**\n• BCA – Bachelor of Computer Applications\n• B.Tech (CSE, ECE, ME, CE, Cyber Security, AI & ML)\n• B.Sc (Computer Science / IT / Applied Sciences)\n• B.Com (Hons.) & BBA\n\n**Postgraduate (PG):**\n• MCA – Master of Computer Applications\n• M.Tech & M.Sc Programs\n• MBA (Dual Specialization, Business Analytics, HR, Finance)\n\nWhich particular domain or course interests you the most?"
+      ]
+    },
+    {
+      "tag": "fees_bca",
+      "patterns": ["bca fees", "fee for bca", "bca course fee", "how much is bca", "bca fee structure"],
+      "responses": [
+        "💰 **BCA Fee Structure:**\n\n• Annual Tuition Fee varies based on batch norms (approx ₹70,000 - ₹90,000 per year standard academic fee).\n• Exam Fees and Development charges are structural per semester.\n\nExcellent merit-based scholarships are active. Would you like to check out the scholarship slabs?"
+      ]
+    },
+    {
+      "tag": "fees_btech",
+      "patterns": ["btech fees", "b.tech fee", "engineering fees", "fee for btech", "btech fee structure", "engineering fee structure"],
+      "responses": [
+        "💰 **B.Tech Fee Structure:**\n\n• Core Tuition Fees fall around ₹1,400,000 - ₹1,59,000 per annum depending on the specialization (like AI/ML, CSE vs Core branches).\n• Standard exam and resource lab charges apply.\n\nEducation loan ties ups are fully active with top nationalized banks like SBI, HDFC, and ICICI."
+      ]
+    },
+    {
+      "tag": "fees_general",
+      "patterns": ["fees", "fee structure", "how much fees", "course fees", "college fees", "what is the fee", "tuition fee", "annual fee"],
+      "responses": [
+        "💰 **General Fee Overview:**\n\nFees differ according to the technical and non-technical nature of the program. Programs like BCA, B.Sc, and B.Com have distinct structures compared to B.Tech or MBA management courses. All details are systematically structured per year. Which course fee summary are you looking for?"
+      ]
+    },
+    {
+      "tag": "hostel",
+      "patterns": ["hostel", "accommodation", "is hostel available", "do you have hostel", "hostel facility", "hostel fee", "stay at college", "dorm", "boarding"],
+      "responses": [
+        "🏠 **Hostel Facilities & Accommodation:**\n\n✅ Premium separate infrastructure for both boys and girls.\n✅ High-speed Wi-Fi, fully updated gymnasiums, and common play zones.\n✅ Complete 24/7 round-the-clock multi-tier security & wardens.\n✅ Hygienic mess providing high-quality nutritional vegetarian meals.\n\nHostel options range from Single/Double occupancy to AC and Non-AC configurations. Rooms are allocated on a first-come, first-served basis!"
+      ]
+    },
+    {
+      "tag": "placement",
+      "patterns": ["placement", "job placement", "placement package", "campus placement", "companies visit", "recruitment", "placements record", "salary package", "job opportunities"],
+      "responses": [
+        "🏢 **Corporate Placement Cell Statistics:**\n\n📊 **Placement Highlights:**\n• Stellar track record with top fortune companies recruiting annually.\n• Highest package ranges dynamically up to ₹35+ LPA in premium slots.\n• Strong average packages across CSE, IT, and specialized branches.\n\n🏆 **Top Global Recruiters:**\nInfosys, Amazon, Wipro, Cognizant, TCS, Capgemini, Tech Mahindra, and major corporate tech giants.\n\nDustin suggests joining our tech bootcamps to get an early edge!"
+      ]
+    },
+    {
+      "tag": "faculty",
+      "patterns": ["faculty", "professors", "teachers", "who are the teachers", "teaching staff", "about faculty", "staff"],
+      "responses": [
+        "👨‍🏫 **Our Distinguished Faculty:**\n\nGalgotias University features highly elite academic minds:\n\n• Core professors with outstanding PhD backgrounds from top global institutions.\n• Dedicated mentors focusing strongly on practical projects and research papers.\n• Industry experts who join as visiting faculty to keep your skills absolute.\n\nWe strictly maintain a premium student-to-faculty mentorship ratio."
+      ]
+    },
+    {
+      "tag": "hod_cs",
+      "patterns": ["hod computer science", "head of cs", "computer science head", "who is hod", "cs department head", "hod of cse", "computer science department head"],
+      "responses": [
+        "👨‍💼 **School of Computing & Computer Science HOD:**\n\nOur specialized Computing departments are led by phenomenal academic deans and HODs holding premier doctoral degrees with massive research credentials. You can access individual contact profiles directly via the official university portal directory."
+      ]
+    },
+    {
+      "tag": "exams",
+      "patterns": ["exam", "examination", "when are exams", "exam schedule", "exam dates", "semester exam", "test schedule", "when will exams start", "exam timetable"],
+      "responses": [
+        "📅 **Examination Schedule Details:**\n\n• **Odd Semesters:** Mid-terms typically active around October, and End-Semester assessments occur between December and January.\n• **Even Semesters:** Evaluation routines start around March-April, and final terms end by May-June.\n\nMake sure to maintain a minimum of 75% attendance to unlock your exam hall ticket hassle-free!"
+      ]
+    },
+    {
+      "tag": "scholarship",
+      "patterns": ["scholarship", "scholarships available", "financial aid", "merit scholarship", "government scholarship", "fee waiver", "stipend", "bursary"],
+      "responses": [
+        "🏅 **Scholarship Slabs at Galgotias University:**\n\n• **Merit-Based:** Exceptional waivers off tuition fees for outstanding performers in boards or university exams.\n• **Sports & Cultural:** Special concessions for state/national tier athletes and dynamic cultural performers.\n• **Government Schemes:** Fully affiliated with central and state post-matric schemes for various categories.\n\nMake sure to submit your credentials to the scholarship cell on time!"
+      ]
+    },
+    {
+      "tag": "contact",
+      "patterns": ["contact", "how to contact", "phone number", "email", "college address", "where is the college", "location", "contact details", "get in touch", "reach you", "helpline"],
+      "responses": [
+        "📞 **Get In Touch with Galgotias University:**\n\n🏫 **Campus Address:**\nPlot No. 2, Sector 17-A, Yamuna Expressway,\nGreater Noida, Gautam Buddh Nagar, Uttar Pradesh\n\n📱 For admission helplines, official emails, and exact route map directions, check our designated contact portal on the official website. Dustin is always glad to guide you!"
+      ]
+    },
+    {
+      "tag": "library",
+      "patterns": ["library", "books", "library facility", "library timing", "digital library", "e-library", "reading room"],
+      "responses": [
+        "📚 **Central Knowledge & Library Resource Center:**\n\n✅ Millions of global e-books, massive volumes of journals, and reference texts.\n✅ Fully modernized fully air-conditioned aesthetic learning layouts.\n✅ Digital library networks accessible from anywhere inside the campus zones."
+      ]
+    },
+    {
+      "tag": "sports",
+      "patterns": ["sports", "games", "sports facilities", "playground", "cricket", "football", "gym", "indoor games", "sports activities"],
+      "responses": [
+        "⚽ **Sports Arena & Recreation:**\n\nOur campus houses massive standard cricket nets, football fields, indoor badminton facilities, multi-activity courts, and a high-spec modern gym infrastructure. Sports meets are organized with grand enthusiasm!"
+      ]
+    },
+    {
+      "tag": "transport",
+      "patterns": ["transport", "bus facility", "college bus", "how to reach", "transport facility", "bus routes", "commute"],
+      "responses": [
+        "🚌 **Transport & Commuting Network:**\n\nAn extensive fleet of university deluxe buses seamlessly connects major nodes across Delhi, Noida, Greater Noida, Ghaziabad, and nearby zones. Routes are fully aligned to student schedules."
+      ]
+    },
+    {
+      "tag": "result",
+      "patterns": ["result", "check result", "marks", "grade", "scorecard", "how to check result", "exam result", "semester result"],
+      "responses": [
+        "📊 **Checking Your Semesters Academic Results:**\n\nResults are swiftly hosted on your official University Student ERP Portal login. Enter your unique enrollment registration number to instantly check your SGPA/CGPA cards."
+      ]
+    },
+    {
+      "tag": "events",
+      "patterns": ["events", "college events", "fest", "cultural fest", "techfest", "annual day", "college festival", "extracurricular"],
+      "responses": [
+        "🎉 **Campus Life Fests & Extravaganzas:**\n\nGet ready for massive star-studded cultural fests, cutting-edge corporate tech hackathons, startup meetups, and intense inter-college fests that happen dynamically through the academic calendar!"
+      ]
+    },
+    {
+      "tag": "infrastructure",
+      "patterns": ["infrastructure", "college campus", "facilities", "labs", "classrooms", "campus tour", "campus facilities", "what facilities"],
+      "responses": [
+        "🏛️ **World-Class Campus Infrastructure:**\n\n• High-end specialized MAC & advanced Computing labs for programming.\n• Futuristic amphitheater-style completely integrated smart classrooms.\n• Multi-cuisine active food courts and green environment campuses."
+      ]
+    },
+    {
+      "tag": "internship",
+      "patterns": ["internship", "summer internship", "training program", "industrial training", "intern", "practical training"],
+      "responses": [
+        "💼 **Corporate Internship Linkages:**\n\nStudents systematically secure exceptional corporate summer training and industry internships starting from the second year onwards. Plentiful stipends are offered during live assignments!"
+      ]
+    },
+    {
+      "tag": "naac_accreditation",
+      "patterns": ["naac", "accreditation", "rating", "ranking", "ugc approved", "recognized", "affiliation", "affiliated to"],
+      "responses": [
+        "🏅 **Accreditation and Top Rankings:**\n\nGalgotias University holds the prestigious NAAC A+ Accreditation and is strongly ranked among the premier universities of India by NIRF and leading educational audits. All programs are strictly UGC recognized."
+      ]
+    },
+    {
+      "tag": "anti_ragging",
+      "patterns": ["ragging", "anti ragging", "ragging policy", "bullying", "harassment", "student safety", "safe campus"],
+      "responses": [
+        "🛡️ **Strict Anti-Ragging and Safety Measures:**\n\nThe campus executes a completely strict Zero-Tolerance policy regarding any form of ragging or harassment. Dedicated squads operate continuously to ensure absolute student safety."
+      ]
+    },
+    {
+      "tag": "online_classes",
+      "patterns": ["online classes", "e-learning", "virtual classes", "distance learning", "online study", "lms", "learning portal"],
+      "responses": [
+        "💻 **Advanced Learning Management Systems (LMS):**\n\nOur modern student portals deliver seamless access to live presentations, reference PDFs, online quizzes, and recorded study materials right on your mobile dashboard."
+      ]
+    },
+    {
+      "tag": "document_required",
+      "patterns": ["documents required", "what documents", "required documents", "papers needed", "documents for admission", "certificate needed"],
+      "responses": [
+        "📄 **Mandatory Documentation Check-List:**\n\n✅ 10th & 12th Standard Marksheets and passing certificates.\n✅ Migration, Transfer, and Character certificates from your last school/college.\n✅ Valid ID proof copies (such as your Aadhaar card) and passport photos.\n\nKeep all your original certificates handy during the physical verification process!"
+      ]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": [
+        "I'm sorry, Dustin didn't quite catch that. Could you rephrase your query? You can ask me about Galgotias admissions, course fees, placements, or hostel guidelines!",
+        "Hmm, I'm not completely sure about that. Try asking Dustin about: Admissions | Available Courses | BCA/B.Tech Fees | Placement Cells | Exam Routines",
+        "Dustin didn't get that right. I can answer standard queries about admissions, fee structures, and campus placements. What would you like to ask?"
+      ]
+    }
+  ]
+}

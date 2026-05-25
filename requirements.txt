@@ -1,0 +1,19 @@
+# ================================================================
+# requirements.txt — Sunrise College AI Chatbot
+# Install all dependencies with: pip install -r requirements.txt
+# ================================================================
+
+# Web Framework
+flask>=2.3.0
+
+# NLP Library
+nltk>=3.8.1
+
+# Streamlit (for Streamlit deployment)
+streamlit>=1.28.0
+
+# Utilities
+python-dotenv>=1.0.0
+
+# Optional: for better tokenization performance
+regex>=2023.10.3
